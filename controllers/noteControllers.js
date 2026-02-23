@@ -7,6 +7,7 @@ const Joi = require('joi')
       const noteSchema = Joi.object({
         title: Joi.string().min(3).required(),
         content: Joi.string().min(5).required(),
+        category: Joi.string().optional().default("Personal"),
         tags: Joi.array().items(Joi.string()).optional()
     });
 
@@ -32,9 +33,12 @@ const Joi = require('joi')
 const getAllNotes = async (req, res, next) => {
   try {
         // Analogy: Extracting query params for pagination and sorting
-        const { page = 1, limit = 10, sortBy = 'createdAt', order = 'desc' } = req.query;
-
-        const notes = await noteModel.find({ }) // Only fetch user's notes
+        const { page = 1, limit = 10, sortBy = 'createdAt', order = 'desc', category} = req.query;
+        let fetched = { }
+        if(category){
+            fetched = {category: req.query.category}
+        }
+        const notes = await noteModel.find(fetched) // Only fetch user's notes
             .sort({ [sortBy]: order === 'desc' ? -1 : 1 })
             .limit(limit * 1)
             .skip((page - 1) * limit)
@@ -103,6 +107,7 @@ const updateNoteById = async (req, res, next) => {
   const updateSchema = Joi.object({
         title: Joi.string().min(3).optional(),
         content: Joi.string().min(5).optional(),
+        category: Joi.string().optional(),
         tags: Joi.array().items(Joi.string()).optional()
     });
 
