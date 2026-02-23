@@ -94,7 +94,6 @@ GET `/api/notes/welcome`
 
 Returns a welcome message
 
----
 
 ### Create a Note
 POST `/api/notes`  
@@ -105,7 +104,6 @@ POST `/api/notes`
 - category: optional string (e.g. Personal, Work)
 - tags: optional array of strings
 
----
 
 ### Get All Notes (Pagination and Sorting included!)
 GET `/api/notes`
@@ -122,7 +120,6 @@ GET `/api/notes`
 - currentPage
 - notes data
 
----
 
 ### Search Notes by Keyword
 GET `/api/notes/search?q=keyword`  
@@ -131,17 +128,14 @@ GET `/api/notes/search?q=keyword`
 - content
 #### Uses case-insensitive regex search
 
----
 
 ### Get Note by ID
 GET `/api/notes/:id`
 
----
 
 ### Update Note by ID
 PUT `/api/notes/:id`
 
----
 
 ### Delete Note by ID
 DELETE `/api/notes/:id`
