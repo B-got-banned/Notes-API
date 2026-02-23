@@ -234,13 +234,16 @@ You can test the API using:
 ## Screenshots
 
 ### Search Feature
-![Search feature screenshot: https://group-1-notes-api.onrender.com/api/notes/search?q=agenda](images/search.png)
+GET `https://group-1-notes-api.onrender.com/api/notes/search?q=agenda`
+![Search feature screenshot](images/search.png)
 
 ### Pagination and Sorting
-![Pagination and Sort screenshot: https://group-1-notes-api.onrender.com/api/notes?page=1&limit=3&sortBy=title&order=asc](images/page-n-sort.png)
+GET `https://group-1-notes-api.onrender.com/api/notes?page=1&limit=3&sortBy=title&order=asc`
+![Pagination and Sort screenshot](images/page-n-sort.png)
 
 **With category filtering**
-![Category filtering screenshot: https://group-1-notes-api.onrender.com/api/notes?limit=2&sortBy=title&category=Work](images/with-category.png)
+GET `https://group-1-notes-api.onrender.com/api/notes?limit=2&sortBy=title&category=Work`
+![Category filtering screenshot](images/with-category.png)
 
 ---
 
