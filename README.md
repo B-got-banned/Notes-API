@@ -204,6 +204,7 @@ The Note schema (built with Mongoose) includes:
 `cd Notes-API`
 
 **Install Dependencies (express, joi, mongoose, dotenv, cors, nodemon)**
+
 `npm install`
 
 **Environment Variables**
@@ -215,6 +216,7 @@ MONGO_URI=your_mongodb_atlas_connection_string
 ```
 
 **Start the Server**
+
 `npm run dev` or `npm start`
 
 Server runs at:
