@@ -35,7 +35,6 @@ The API follows a modular structure separating controllers, routes, models, midd
 
 ## Project Structure
 
-```
 Notes-API/
 ├── controllers/
 │   └── noteController.js
@@ -50,7 +49,6 @@ Notes-API/
 │   └── noteRoutes.js
 ├── app.js
 └── package.json
-```
 
 ---
 
@@ -90,13 +88,15 @@ Notes-API/
 ## API Endpoints
 
 ### Welcome Route
-GET `/api/notes/welcome`  
+GET `/api/notes/welcome` 
+
 Returns a welcome message
 
 ---
 
 ### Create a Note
 POST `/api/notes`  
+
 **Validation Rules**
 - title: minimum 3 characters (required)
 - content: minimum 5 characters (required)
@@ -107,6 +107,7 @@ POST `/api/notes`
 
 ### Get All Notes (Pagination and Sorting included!)
 GET `/api/notes`
+
 **Available Query Parameters**
 - page (default value set to 1): the page number
 - limit (default value set to 10): the number of notes per page
