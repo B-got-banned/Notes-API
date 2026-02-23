@@ -35,6 +35,7 @@ The API follows a modular structure separating controllers, routes, models, midd
 
 ## Project Structure
 
+```
 Notes-API/
 ├── controllers/
 │   └── noteController.js
@@ -49,6 +50,7 @@ Notes-API/
 │   └── noteRoutes.js
 ├── app.js
 └── package.json
+```
 
 ---
 
