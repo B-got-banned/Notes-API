@@ -14,7 +14,7 @@ app.use(express.json())
 app.use(cors('*'))
 app.use(reqLogger)
 
-app.use('/api', routes)
+app.use('/api/notes', routes)
 
 app.use(errorHandler)
 app.listen(PORT, () => {

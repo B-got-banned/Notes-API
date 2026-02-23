@@ -16,10 +16,7 @@ const Joi = require('joi')
     }
 
   try {
-        const newNote = new noteModel({
-            ...value,
-            author: req.user._id // Linking note to the logged-in user
-        });
+        const newNote = new noteModel({...value });
         await newNote.save();
             return res.status(201).json({
             message: 'Note created successfully',
@@ -28,7 +25,7 @@ const Joi = require('joi')
     } catch (error) {
         next(error);
     }
-}
+};
 
 //2.Controller to get all notes
   //Include pagination and sorting
@@ -37,13 +34,13 @@ const getAllNotes = async (req, res, next) => {
         // Analogy: Extracting query params for pagination and sorting
         const { page = 1, limit = 10, sortBy = 'createdAt', order = 'desc' } = req.query;
 
-        const notes = await noteModel.find({ author: req.user._id }) // Only fetch user's notes
+        const notes = await noteModel.find({ }) // Only fetch user's notes
             .sort({ [sortBy]: order === 'desc' ? -1 : 1 })
             .limit(limit * 1)
             .skip((page - 1) * limit)
             .exec();
 
-        const count = await noteModel.countDocuments({ author: req.user._id });
+        const count = await noteModel.countDocuments({ });
 
         return res.status(200).json({
             message: "Notes fetched successfully",
@@ -66,7 +63,6 @@ const getNotesByKeyword = async (req, res, next) => {
 
         // Using Regex for partial matches in title or content
         const notes = await noteModel.find({
-            author: req.user._id,
             $or: [
                 { title: { $regex: q, $options: 'i' } },
                 { content: { $regex: q, $options: 'i' } }
@@ -81,14 +77,12 @@ const getNotesByKeyword = async (req, res, next) => {
     } catch (error) {
         next(error);
     }
-
-
-}
+};
 
 //4.Controller to get a note by ID
 const getNoteById = async (req, res, next) => {
    try {
-        const note = await noteModel.findOne({ _id: req.params.id, author: req.user._id });
+        const note = await noteModel.findOne({ _id: req.params.id });
 
         if (!note) {
             return res.status(404).json({ message: "Note not found or unauthorized" });
@@ -117,7 +111,7 @@ const updateNoteById = async (req, res, next) => {
 
     try {
         const updatedNote = await noteModel.findOneAndUpdate(
-            { _id: req.params.id, author: req.user._id }, // Ownership check included in query
+            { _id: req.params.id }, // Ownership check included in query
             { ...value },
             { new: true, runValidators: true }
         );
@@ -140,10 +134,7 @@ const updateNoteById = async (req, res, next) => {
 //6.Controller to delete note by ID
 const deleteNoteById = async (req, res, next) => {
    try {
-        const deletedNote = await noteModel.findOneAndDelete({ 
-            _id: req.params.id, 
-            author: req.user._id 
-        });
+        const deletedNote = await noteModel.findOneAndDelete({ _id: req.params.id});
 
         if (!deletedNote) {
             return res.status(404).json({ message: "Note not found or unauthorized" });
@@ -153,6 +144,6 @@ const deleteNoteById = async (req, res, next) => {
         next(error);
     }
 
-}
+};
 
 module.exports = {createNote, getAllNotes, getNoteById, getNotesByKeyword, updateNoteById, deleteNoteById}
