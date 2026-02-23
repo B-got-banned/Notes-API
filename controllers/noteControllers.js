@@ -19,7 +19,7 @@ const Joi = require('joi')
         const newNote = new noteModel({...value });
         await newNote.save();
             return res.status(201).json({
-            message: 'Note created successfully',
+            message: 'Note created successfully!',
             data: newNote
         });
     } catch (error) {
@@ -43,7 +43,7 @@ const getAllNotes = async (req, res, next) => {
         const count = await noteModel.countDocuments({ });
 
         return res.status(200).json({
-            message: "Notes fetched successfully",
+            message: "Notes fetched successfully!",
             totalPages: Math.ceil(count / limit),
             currentPage: page,
             data: notes
@@ -85,7 +85,7 @@ const getNoteById = async (req, res, next) => {
         const note = await noteModel.findOne({ _id: req.params.id });
 
         if (!note) {
-            return res.status(404).json({ message: "Note not found or unauthorized" });
+            return res.status(404).json({ message: "Note not found. :(" });
         }
 
         return res.status(200).json({
@@ -117,11 +117,11 @@ const updateNoteById = async (req, res, next) => {
         );
 
         if (!updatedNote) {
-            return res.status(404).json({ message: "Note not found or unauthorized" });
+            return res.status(404).json({ message: "Note not found. :(" });
         }
 
         return res.status(200).json({
-            message: "Note updated successfully",
+            message: "Note updated successfully!",
             data: updatedNote
         });
     } catch (error) {
@@ -137,9 +137,9 @@ const deleteNoteById = async (req, res, next) => {
         const deletedNote = await noteModel.findOneAndDelete({ _id: req.params.id});
 
         if (!deletedNote) {
-            return res.status(404).json({ message: "Note not found or unauthorized" });
+            return res.status(404).json({ message: "Note not found. :(" });
         }
-             res.status(200).json({ message: 'Note deleted successfully' });
+        res.status(204).json({ message: 'Note deleted successfully!' });
     } catch (error) {
         next(error);
     }
