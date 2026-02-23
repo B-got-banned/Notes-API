@@ -6,7 +6,6 @@ router.get('/welcome', (req, res) => {
   res.status(200).send("Welcome to Group 1's Note API! :D")
 })
 
-router.get('/', getAllNotes)
 
 router.post('/', createNote)
 router.get('/', getAllNotes)
