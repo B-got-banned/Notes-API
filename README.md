@@ -142,6 +142,7 @@ PUT `/api/notes/:id`
 
 ### Delete Note by ID
 DELETE `/api/notes/:id`
+
 **Returns status code 204 if successful**
 
 ---
@@ -161,6 +162,7 @@ Pagination is handled using:
 - limit()
 - skip()
 - sort()
+  
 This ensures efficient data retrieval and flexible sorting.
 
 ---
@@ -196,6 +198,7 @@ The Note schema (built with Mongoose) includes:
 ## Setup Instructions
 
 **Clone the Repository**
+
 `git clone https://github.com/B-got-banned/Notes-API.git`
 
 `cd Notes-API`
@@ -235,6 +238,7 @@ You can test the API using:
 
 ### Pagination and Sorting
 > insert screenshot
+
 **With category filtering**
 > insert screenshot
 
