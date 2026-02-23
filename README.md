@@ -113,6 +113,7 @@ GET `/api/notes`
 - sortBy (default value set to createdAt): the field to sort by
 - order (default value set to desc): the notes in asc or desc order
 - category (optional): filter notes by category (e.g. Personal, Work)
+
 **Included response**
 - totalPages
 - currentPage
@@ -196,6 +197,7 @@ The Note schema (built with Mongoose) includes:
 
 **Clone the Repository**
 `git clone https://github.com/B-got-banned/Notes-API.git`
+
 `cd Notes-API`
 
 **Install Dependencies (express, joi, mongoose, dotenv, cors, nodemon)**
@@ -211,6 +213,7 @@ MONGO_URI=your_mongodb_atlas_connection_string
 
 **Start the Server**
 `npm run dev` or `npm start`
+
 Server runs at:
 `http://localhost:5020`
 
@@ -239,6 +242,9 @@ You can test the API using:
 
 ## Contributors
 [Bethel Onyealilachi](https://github.com/B-got-banned)
+
 [Bryan Jerry-Bassey](https://github.com/JeedyWhyte)
+
 [Kamal El-Mahmoud](https://github.com/KemilandInc)
+
 [Lucky Abigail Atuhaire](https://github.com/laatuhaire)
