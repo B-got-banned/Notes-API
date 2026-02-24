@@ -29,7 +29,7 @@ The API follows a modular structure separating controllers, routes, models, midd
 
 **Live API URL:** https://group-1-notes-api.onrender.com
 
-**Postman Collection:** [View](https://documenter.getpostman.com/view/39230434/2sBXcGCek)
+**Postman Collection:** [View](https://documenter.getpostman.com/view/39230434/2sBXcGCekw)
 
 ---
 
