@@ -29,7 +29,7 @@ The API follows a modular structure separating controllers, routes, models, midd
 
 **Live API URL:** https://group-1-notes-api.onrender.com
 
-**Postman Collection:** [View](https://documenter.getpostman.com/view/39230434/2sBXcGCekw)
+**Postman Collection:** [Notes API](https://documenter.getpostman.com/view/39230434/2sBXcGCekw)
 
 ---
 
@@ -205,6 +205,7 @@ The Note schema (built with Mongoose) includes:
 `npm install`
 
 **Environment Variables**
+
 Create a `.env` file in the root directory with the following:
 
 ```
